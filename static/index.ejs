@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page Title</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script defer src="/scripts.js"></script>
+  </head>
+  <body>
+    <h1>Main view</h1>
+    <p>Random string:</p>
+
+    <!-- initial values -->
+    <p
+      hx-get="/random-string"
+      hx-trigger="every 2s"
+      hx-swap="outerHTML"
+      style="color: '<%= initialColor %>'"
+      id="random-string"
+    >
+      <%= initialString %>
+    </p>
+
+    <!-- value from local storage -->
+    <p>Last saved string: <span id="saved-string"></span></p>
+  </body>
+</html>
